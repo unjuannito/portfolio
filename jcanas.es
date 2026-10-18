@@ -1,5 +1,5 @@
 # Configuración para el Nginx del servidor host.
-# El TLS termina aquí; el contenedor del portfolio escucha en localhost:38741.
+# El TLS termina aquí; el contenedor del portfolio escucha en localhost:38742.
 server {
     listen 80;
     listen [::]:80;
@@ -28,7 +28,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/jcanas.es/privkey.pem;
 
     location / {
-        proxy_pass http://127.0.0.1:38741;
+        proxy_pass http://127.0.0.1:38742;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
