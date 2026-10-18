@@ -6,4 +6,6 @@ services:
     container_name: portfolio
     restart: unless-stopped
     ports:
-      - "127.0.0.1:38741:38741"
+      - "127.0.0.1:38742:38742"
+    volumes:
+      - ./profile-photo.jpeg:/usr/share/nginx/html/profile-photo.jpeg:ro
