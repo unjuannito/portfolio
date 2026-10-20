@@ -71,6 +71,8 @@ Vite mostrará en la terminal la dirección local para abrir el portfolio.
 | `npm run preview` | Sirve localmente la compilación de producción. |
 | `npm run lint` | Ejecuta ESLint. |
 
+El build genera banners PNG de 1200 × 630 en `public/share/` con el favicon y `profile-photo.jpeg` cuando está disponible.
+
 ## 🐳 Ejecutar con Docker
 
 El contenedor de producción sirve el sitio con Nginx en el puerto `38742`. Para incluir la foto de perfil, coloca `profile-photo.jpeg` en la raíz del proyecto antes de iniciar el contenedor.
