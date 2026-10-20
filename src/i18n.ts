@@ -1,7 +1,7 @@
-import i18n from 'i18next'
+import { createInstance } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-const resources = {
+export const resources = {
   es: { translation: {
     nav: { projects: 'Proyectos', about: 'Sobre mí', contact: 'Contacto' },
     hero: { eyebrow: 'DESARROLLADOR SALESFORCE Y CREADOR WEB', hello: 'Hola, soy', intro: 'Convierto ideas en soluciones digitales útiles. Trabajo con Salesforce y disfruto creando proyectos web propios.', cta: 'Ver proyectos', location: 'DESDE ALCOBENDAS, MADRID', sticker: 'crea algo que importe' },
@@ -30,5 +30,13 @@ const resources = {
   } }
 }
 
-i18n.use(initReactI18next).init({ resources, lng: navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en', fallbackLng: 'es', interpolation: { escapeValue: false } })
-export default i18n
+export async function createPortfolioI18n(language: 'es' | 'en') {
+  const instance = createInstance()
+  await instance.use(initReactI18next).init({
+    resources,
+    lng: language,
+    fallbackLng: 'es',
+    interpolation: { escapeValue: false },
+  })
+  return instance
+}

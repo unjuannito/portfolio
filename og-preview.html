@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vista previa local de banners sociales</title>
+    <style>
+      :root { color-scheme: light; font-family: Inter, system-ui, sans-serif; background: #f1f1ed; color: #191a17; }
+      body { max-width: 1100px; margin: 48px auto; padding: 0 24px; }
+      h1 { font-size: clamp(28px, 5vw, 44px); letter-spacing: -.04em; margin-bottom: 8px; }
+      p { color: #686b64; margin-top: 0; }
+      main { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); margin-top: 32px; }
+      article { overflow: hidden; border: 1px solid #dedfd9; border-radius: 12px; background: white; box-shadow: 0 12px 35px #1a20100d; }
+      img { display: block; width: 100%; height: auto; }
+      .meta { padding: 18px 20px 20px; }
+      h2 { font-size: 19px; margin: 0 0 7px; }
+      code { font-size: 12px; color: #667142; overflow-wrap: anywhere; }
+      @media (max-width: 600px) { body { margin-top: 28px; } }
+    </style>
+  </head>
+  <body>
+    <h1>Vista previa de banners sociales</h1>
+    <p>Solo para desarrollo local. Genera los PNG con <code>npm run build</code>; esta página no se copia a producción.</p>
+    <main>
+      <article>
+        <img src="/share/home-es.png" alt="Banner de portada en español" />
+        <div class="meta"><h2>Portada · Español</h2><code>/share/home-es.png</code></div>
+      </article>
+      <article>
+        <img src="/share/home-en.png" alt="English home page banner" />
+        <div class="meta"><h2>Home · English</h2><code>/share/home-en.png</code></div>
+      </article>
+    </main>
+  </body>
+</html>
