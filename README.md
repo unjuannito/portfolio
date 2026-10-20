@@ -60,7 +60,7 @@ npm install
 npm run dev
 ```
 
-Vite mostrará en la terminal la dirección local para abrir el portfolio. Abre `/og-preview.html` durante el desarrollo para comparar los banners en español e inglés.
+Vite mostrará en la terminal la dirección local para abrir el portfolio.
 
 ### Comandos disponibles
 
@@ -71,7 +71,7 @@ Vite mostrará en la terminal la dirección local para abrir el portfolio. Abre 
 | `npm run preview` | Sirve localmente la compilación de producción. |
 | `npm run lint` | Ejecuta ESLint. |
 
-El build genera banners PNG de 1200 × 630 en `public/share/` con el favicon y `profile-photo.jpeg` cuando está disponible. La página de vista previa local no se copia a producción.
+El build genera banners PNG de 1200 × 630 en `public/share/` con el favicon y `profile-photo.jpeg` cuando está disponible.
 
 ## 🐳 Ejecutar con Docker
 

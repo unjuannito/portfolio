@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 /profile-photo.jpeg
+/og-preview.html
+/public/share/*.png
 
 # Editor directories and files
 .vscode/*
