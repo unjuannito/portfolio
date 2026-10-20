@@ -12,14 +12,24 @@ const items = [
 
 function Arrow() { return <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg> }
 
+function BrandMark() {
+  return <img className="brand-mark" src="/favicon.png" alt="" aria-hidden="true" />
+}
+
 function Art({ id }: { id: string }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language.startsWith('es') ? 'es' : 'en'
+  const socialImage = id === 'sushi'
+    ? 'https://sushi-counter.jcanas.es/share/home.png'
+    : id === 'kahoot'
+      ? `https://kahoot-builder.jcanas.es/share/home.png?lang=${lang}`
+      : null
   return <div className={`art art-${id}`}>
-    <div className="browser-dots"><i/><i/><i/></div>
+    {socialImage ? <img className="project-social-image" src={socialImage} alt="" loading="lazy" /> : <><div className="browser-dots"><i/><i/><i/></div>
     {id === 'sushi' && <div className="art-window sushi-window"><span className="sushi-icon">🍣</span><strong>08<span> / 12</span></strong><div className="sushi-bars"><i/><i/><i/><i/><i/><i/><i/></div></div>}
     {id === 'kahoot' && <div className="art-window kahoot-window"><small>{t('artwork.teamQuiz')}</small><strong>{t('artwork.question')}</strong><div className="answers"><i>A · Marta</i><i>B · Diego</i><i>C · Alex</i><i>D · Sofía</i></div></div>}
     {id === 'finance' && <div className="art-window finance-window"><div className="finance-top">{t('artwork.balance')} <span>↗ +12.8%</span></div><strong>€ 24,580<span>.00</span></strong><div className="bars">{[28,38,34,48,62,55,45,68,59,73,80,94].map((n,i)=><i key={i} style={{height:`${n}%`}}/>)}</div><div className="finance-bottom"><span>{t('artwork.income')} <b>€ 4,250</b></span><span>{t('artwork.expenses')} <b>€ 1,870</b></span></div></div>}
-    {id === 'yambo' && <><div className="orb orb-one"/><div className="orb orb-two"/><div className="art-window yambo-window"><small>YAMBO</small><strong>{t('artwork.yamboMotto')}</strong><span>{t('artwork.youthAssociation')}</span></div></>}
+    {id === 'yambo' && <><div className="orb orb-one"/><div className="orb orb-two"/><div className="art-window yambo-window"><small>YAMBO</small><strong>{t('artwork.yamboMotto')}</strong><span>{t('artwork.youthAssociation')}</span></div></>}</>}
     <div className="art-label">{id === 'yambo' ? t('work.artCollaboration') : id.toUpperCase()}</div>
   </div>
 }
@@ -44,7 +54,7 @@ function App() {
   }
   return <div className="min-h-screen bg-[var(--bg)] text-[var(--ink)] transition-colors duration-300">
     <header className="header"><div className="shell header-inner">
-      <a className="brand" href="#inicio" aria-label="Juan Cañas, inicio"><strong>JC<span>.</span></strong><small>JUAN CAÑAS</small></a>
+      <a className="brand" href="#inicio" aria-label="Juan Cañas, inicio"><BrandMark/><small>JUAN CAÑAS</small></a>
       <nav className={menu ? 'nav open' : 'nav'} aria-label={t('navLabel')}><a href="#proyectos" onClick={()=>setMenu(false)}>{t('nav.projects')}</a><a href="#sobre-mi" onClick={()=>setMenu(false)}>{t('nav.about')}</a><a href="#contacto" onClick={()=>setMenu(false)}>{t('nav.contact')}</a></nav>
       <div className="header-controls"><div className="language" aria-label={t('languageLabel')}><button className={i18n.language==='es'?'selected':''} aria-pressed={i18n.language==='es'} onClick={()=>i18n.changeLanguage('es')}>ES</button><span>/</span><button className={i18n.language==='en'?'selected':''} aria-pressed={i18n.language==='en'} onClick={()=>i18n.changeLanguage('en')}>EN</button></div><button className="theme-button" onClick={changeTheme} aria-label={`${t('theme')}: ${t(theme)}`} title={`${t('theme')}: ${t(theme)}`}>{theme==='system'?'▣':theme==='light'?'☼':'☾'}</button><button className="menu-button" aria-label={t(menu?'closeMenu':'menu')} aria-expanded={menu} onClick={()=>setMenu(!menu)}><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">{menu?<path d="m6 6 12 12M18 6 6 18"/>:<path d="M4 7h16M4 12h16M4 17h16"/>}</svg></button></div>
     </div></header>
